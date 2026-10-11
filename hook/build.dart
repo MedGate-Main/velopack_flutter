@@ -4,6 +4,9 @@ import 'package:native_toolchain_rust/native_toolchain_rust.dart';
 
 void main(List<String> args) async {
   await build(args, (input, output) async {
+    // No code config means no native assets to build (e.g. web targets).
+    if (!input.config.buildCodeAssets) return;
+
     final targetOS = input.config.code.targetOS;
 
     if (targetOS == OS.iOS || targetOS == OS.android) {

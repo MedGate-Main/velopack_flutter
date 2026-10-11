@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.3
+
+* Fix build hook crash on targets without a code config (e.g. web builds). The hook now checks `input.config.buildCodeAssets` before accessing `input.config.code`, and returns early when no native assets are required.
+
 ## 0.3.2
 
 * Added top-level desktop platform metadata so pub.dev correctly lists Linux, macOS, and Windows support
